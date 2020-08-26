@@ -6,17 +6,17 @@
 
 <div class='show-container'>
 
-<%= form_with model: @idea, local:true do |f| %>
-  <div class='form-group'>
-    <%= f.label :title %>
-    <%= f.text_field(:title, class: 'form-control')%>
-  </div>
-  <div class='form-group'>
-    <%= f.label :description %>
-    <%= f.text_area(:description, class: 'form-control', cols: 50, rows: 5)%>
-  </div>
+  <%= form_with model: @idea, local:true do |f| %>
+    <div class='form-group'>
+      <%= f.label :title %>
+      <%= f.text_field(:title, class: 'form-control')%>
+    </div>
+    <div class='form-group'>
+      <%= f.label :description %>
+      <%= f.text_area(:description, class: 'form-control', cols: 50, rows: 5)%>
+    </div>
 
-  <%= f.submit "Submit", class: 'btn btn-primary' %>
-<% end %>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+  <% end %>
 
 </div>

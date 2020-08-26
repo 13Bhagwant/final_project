@@ -26,6 +26,7 @@
     <% end %>
   </span>
   <% if can? :crud, @idea %>
+
   <div class='edit-delete-btns '>
     <%= link_to(
       "Edit",
@@ -48,62 +49,62 @@
 
 
 <div class='show-container'>
-<%= form_with(model: [@idea, @review], local: true) do |f| %>
-  <% if @review.errors.full_messages.each do |msg| %>
-    <ul>
-      <li class="text-danger"><%= msg %></li>
-    </ul>
+  <%= form_with(model: [@idea, @review], local: true) do |f| %>
+    <% if @review.errors.full_messages.each do |msg| %>
+      <ul>
+        <li class="text-danger"><%= msg %></li>
+      </ul>
+      <% end %>
     <% end %>
-  <% end %>
-   <div class="form-group">
-  <h3>Please let us know what you think:</h3>
-    <%= f.number_field(
-      :rating,
-      rows: 1,
-      placeholder: "1-5",
-      class: "form-control"
-    ) %>
-  </div>
-  <div class="form-group">
-    <%= f.text_area(
-      :body,
-      cols: 50,
-      rows: 5,
-      placeholder: "What are you thoughts?",
-      class: "form-control"
-    ) %>
-  </div>
-  <%= f.submit "Review", class: "btn btn-shadow" %>
-<% end %>
-<div>
-<ul class="index-list">
-  <% @reviews.each do |review| %>
-  <div class="index-text">
-    <li class="list-item">
-    <h5>Review: <%= review.rating %> out of 5</h5>
-      <p class='show-text'>
-        <%= review.body %><br />
-        <% if can? :crud, review %>
-        <small>
-          <%= link_to(
-            "Delete",
-            idea_review_path(@idea, review),
-            method: :delete, 
-            data: {
-              confirm: "Are you sure?"
-            },
-            class: 'btn btn-shadow show-btn btn-sm',
-          ) %>
-        </small>
-        |
-        <% end %>
-        <small>
-          Reviewed <%= time_ago_in_words(review.created_at) %> by <%= review.user.full_name %> <%= review.user.last_name %>
-        </small>
-      </p>
-    </li>
+    <div class="form-group">
+    <h3>Please let us know what you think:</h3>
+      <%= f.number_field(
+        :rating,
+        rows: 1,
+        placeholder: "1-5",
+        class: "form-control"
+      ) %>
     </div>
+    <div class="form-group">
+      <%= f.text_area(
+        :body,
+        cols: 50,
+        rows: 5,
+        placeholder: "What are you thoughts?",
+        class: "form-control"
+      ) %>
+    </div>
+    <%= f.submit "Review", class: "btn btn-shadow" %>
   <% end %>
-</ul>
-</div>
+  <div>
+    <ul class="index-list">
+      <% @reviews.each do |review| %>
+        <div class="index-text">
+          <li class="list-item">
+          <h5>Review: <%= review.rating %> out of 5</h5>
+            <p class='show-text'>
+              <%= review.body %><br />
+              <% if can? :crud, review %>
+              <small>
+                <%= link_to(
+                  "Delete",
+                  idea_review_path(@idea, review),
+                  method: :delete, 
+                  data: {
+                    confirm: "Are you sure?"
+                  },
+                  class: 'btn btn-shadow show-btn btn-sm',
+                ) %>
+              </small>
+              |
+              <% end %>
+              <small>
+                Reviewed <%= time_ago_in_words(review.created_at) %> by <%= review.user.full_name %> <%= review.user.last_name %>
+              </small>
+            </p>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 </div>

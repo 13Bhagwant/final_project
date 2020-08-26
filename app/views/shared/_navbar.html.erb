@@ -1,23 +1,23 @@
 <nav class='navbar'>
 
-<ul class='navbar-nav mr-auto'>
-<div class="logo"><%= image_tag "idea.png", class: "idea-img"%>
-   <h5><%= link_to "Factory Idea", root_path, class: 'home-btn'%></h5>
-</div>
-  </ul>
+  <ul class='navbar-nav mr-auto'>
+  <div class="logo"><%= image_tag "idea.png", class: "idea-img"%>
+    <h5><%= link_to "Factory Idea", root_path, class: 'home-btn'%></h5>
+  </div>
+    </ul>
 
-  <div class="nav-item">
-  <div>
-    <% if user_signed_in? %>
-     <span class="user"><%= current_user.first_name %> <%= current_user.last_name %></span> 
-      <%= link_to "Logout", session_path, method: :delete, class: 'btn btn-shadow' %>
-    <% else %>
-      <span class="log-btns"><%= link_to "Log In", new_session_path, class: 'btn btn-shadow'%></span>
-      <span class="log-btns"><%= link_to "New User", new_user_path, class: 'btn btn-shadow'%></span>
-    <% end %>
-  </div>
-  <div class="new-idea">
-  <%= link_to "New Idea", new_idea_path, class: 'btn btn-shadow'%>
-  </div>
-  </div>
+    <div class="nav-item">
+    <div>
+      <% if user_signed_in? %>
+      <span class="user"><%= current_user.first_name %> <%= current_user.last_name %></span> 
+        <%= link_to "Logout", session_path, method: :delete, class: 'btn btn-shadow' %>
+      <% else %>
+        <span class="log-btns"><%= link_to "Log In", new_session_path, class: 'btn btn-shadow'%></span>
+        <span class="log-btns"><%= link_to "New User", new_user_path, class: 'btn btn-shadow'%></span>
+      <% end %>
+    </div>
+    <div class="new-idea">
+    <%= link_to "New Idea", new_idea_path, class: 'btn btn-shadow'%>
+    </div>
+    </div>
 </nav>

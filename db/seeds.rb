@@ -12,7 +12,7 @@ User.delete_all
 
 NUM_IDEA = 100
 NUM_USER = 10
-PASSWORD = 'komal'
+PASSWORD = 'bhagwant'
 
 super_user = User.create(
     first_name: "Bhagwant",

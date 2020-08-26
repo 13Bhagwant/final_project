@@ -1,20 +1,20 @@
 <div>
   <ul class="index-list">
-  <% @ideas.each do |idea| %>
-    <%# if you pass a instance to link_to it will create the href='/questions/:id' %>
-    <%= link_to idea do %>
-    <div class="index-text">
-      <li class='list-item'>
-        <h4 class="index-title"> <%= idea.title %> </h4>
-        <p> <%= idea.description %> </p>
-        
-      </li>
-      <div class="user-like-info">
-      <span class="user-link">By <%= idea.user.first_name %> <%= idea.user.last_name %> </span>
-      <span>Likes: <%= idea.likes.count %></span>
-      </div>
-      </div>
+    <% @ideas.each do |idea| %>
+      <%# if you pass a instance to link_to it will create the href='/questions/:id' %>
+      <%= link_to idea do %>
+      <div class="index-text">
+        <li class='list-item'>
+            <h4 class="index-title"> <%= idea.title %> </h4>
+            <p> <%= idea.description %> </p>
+            
+        </li>
+          <div class="user-like-info">
+          <span class="user-link">By <%= idea.user.first_name %> <%= idea.user.last_name %> </span>
+          <span>Likes: <%= idea.likes.count %></span>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 </div>
