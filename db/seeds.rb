@@ -17,7 +17,7 @@ PASSWORD = 'bhagwant'
 super_user = User.create(
     first_name: "Bhagwant",
     last_name: "Singh",
-    email: "bs@k.your",
+    email: "bs@gmail.com",
     password: PASSWORD, 
     is_admin: true
 )
